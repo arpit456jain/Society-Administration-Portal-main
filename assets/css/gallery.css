@@ -1,0 +1,31 @@
+.carousel-img{
+    width: 75%;
+    height: 50%;
+}
+.carousel-control-next{
+    margin-right: 15%;
+}
+.carousel-control-prev{
+    margin-left: 15%;
+}
+.carousel-inner{
+    text-align: center;
+}
+body{
+    background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
+}
+.carousel{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    width: 85%;
+    margin-right: auto;
+    margin-left: auto;
+}
+.title{
+    color: red;
+    text-align: center;
+    margin-top: 2%;
+    font-size: 300%;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+}
