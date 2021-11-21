@@ -15,13 +15,15 @@ def signup(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
-        print(username, password)
-        user = user = User.objects.create_user(username, 'email', password)
+        email = request.POST['email']
+        pnumber = request.POST['pnumber']
+        print(username, password,email,pnumber)
+        user = user = User.objects.create_user(username, email, password)
         user.save()
     else:
         print("get")
         
-    return render(request,"/")
+    return redirect('/')
 
 def loginuser(request):
     if request.method == 'POST':
@@ -31,11 +33,12 @@ def loginuser(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
+            print("login")
             # Redirect to a success page.
-            return redirect('/')
+            return redirect('/dashboard')
         else:
             print("invalid")
-    return render(request,"/dashboard")
+    return redirect('/')
 
 def logoutuser(request):
     logout(request)
