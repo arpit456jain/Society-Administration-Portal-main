@@ -8,6 +8,15 @@ def home(request):
     return render(request,'index.html')
 def dashboard(request):
     return render(request,'Pages/dashboard.html')
+def notices(request):
+    return render(request,'Pages/notices.html')
+
+def map(request):
+    return render(request,'Pages/map.html')
+
+def calendar(request):
+    return render(request,'Pages/calendar.html')
+
 def gallery(request):
     return render(request,'Pages/gallery.html')
 
