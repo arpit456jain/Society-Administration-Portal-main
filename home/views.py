@@ -2,14 +2,19 @@ from django.shortcuts import render,redirect
 from django.shortcuts import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate , login , logout
+from home.models import Contact,Notices
 # from django.contrib import messages
 
 def home(request):
     return render(request,'index.html')
 def dashboard(request):
     return render(request,'Pages/dashboard.html')
+
 def notices(request):
-    return render(request,'Pages/notices.html')
+    # we have to fect all notices
+    allnotices = Notices.objects.all()
+    params = {'allnotices': allnotices}
+    return render(request,'Pages/notices.html',params)
 
 def map(request):
     return render(request,'Pages/map.html')
