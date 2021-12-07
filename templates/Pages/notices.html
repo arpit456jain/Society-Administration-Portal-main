@@ -38,6 +38,33 @@
       </ul>
       
   </nav>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        {% for post in allnotices %}
+        
+        <div class="post-preview">
+          <a href="#{{post.slug}}">
+            <h2 class="post-title">
+              {{post.title}}
+            </h2>
+            <p class="post-content">
+              {{post.content}}
+            </p>
+          </a>
+          <br>
+          <p class="post-meta">Posted by
+            <a href="#">{{post.author}}</a>
+            on{{post.timeStamp}}</p>
+        </div>
+        
+        
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
   <script src="{% static 'assets/js/notice.js' %}"></script>
 </body>
 </html>
