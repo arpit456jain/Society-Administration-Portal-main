@@ -23,7 +23,7 @@ class Notices(models.Model):
     sno=models.AutoField(primary_key=True)
     title=models.CharField(max_length=255)
     author=models.CharField(max_length=14,blank=True)
-    # slug=models.CharField(max_length=130)
+    slug=models.CharField(max_length=130)
     timeStamp=models.DateTimeField(blank=True)
     content=models.TextField()
     # views= models.IntegerField(default=0)

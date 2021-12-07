@@ -13,7 +13,6 @@ def dashboard(request):
 def notices(request):
     # we have to fect all notices
     allnotices = Notices.objects.all()
-    print(allnotices)
     params = {'allnotices': allnotices}
     return render(request,'Pages/notices.html',params)
 

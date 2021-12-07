@@ -7,64 +7,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navigation Bar</title>
     <link rel="stylesheet" href="{% static 'assets/css/notice.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     
     <script src="https://kit.fontawesome.com/82f797382f.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  
-  <nav class="navbar">
-    <div class="logo_header">
-      <a href="#" class="logo">Notices</a>
-      <button class="navbar_toggle">
-        <i class="fas fa-bars"></i>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
       </button>
-    </div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
 
-    
-    <ul class="main_nav">
-      <li>
-        <a href="#" class="nav_links">Home</a>
-      </li>
-      <li>
-        <a href="#" class="nav_links">View Notices</a>
-      </li>
-      <li>
-        <a href="#" class="nav_links">View Dues</a>
-      </li>
-      <li>
-        <a href="#" class="nav_links">Contact</a>
-      </li>
-      </ul>
-      
+        </ul>
+      </div>
+    </div>
   </nav>
-  
   <div class="container">
+    <h1 class="text-center my-5">Notices</h1>
     <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-        {% for post in allnotices %}
+       <divclass="col-lg-8 col-md-10 mx-auto">
+
+        <div class="accordion" id="accordionExample">
         
-        <div class="post-preview">
-          <a href="#{{post.slug}}">
-            <h2 class="post-title">
-              {{post.title}}
+          {% for post in allnotices %}
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{post.slug}}" aria-expanded="true" aria-controls="{{post.slug}}">
+                {{post.title}}
+              </button>
             </h2>
-            <p class="post-content">
-              {{post.content}}
-            </p>
-          </a>
-          <br>
-          <p class="post-meta">Posted by
-            <a href="#">{{post.author}}</a>
-            on{{post.timeStamp}}</p>
+            <div id="{{post.slug}}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+               {{post.content}}
+               <strong>
+                <p class="post-meta">Posted by
+                  <a href="#">{{post.author}}</a>
+                  on{{post.timeStamp}}</p>
+                </strong>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          
         </div>
-        
-        
-        {% endfor %}
+
+
       </div>
     </div>
   </div>
 
   <script src="{% static 'assets/js/notice.js' %}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
